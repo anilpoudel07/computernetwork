@@ -1,0 +1,57 @@
+# IP Packet Header Field Values
+
+This document provides an explanation of the values for each field in an IP packet header.
+
+## Header Field Values
+
+### a. **Version (4 bits)**
+- **Value:** `4`
+- **Explanation:** The value `4` signifies that this packet is using IPv4, which is the fourth version of the Internet Protocol.
+
+### b. **Header Length (IHL) (4 bits)**
+- **Value:** `5`
+- **Explanation:** The value `5` indicates that the header length is 5 units of 32-bit words. Since each word is 4 bytes, this translates to a header length of 20 bytes (5 * 4 bytes).
+
+### c. **DSCP (6 bits)**
+- **Value:** `0x80`
+- **Explanation:** The value `0x80` corresponds to a Differentiated Services Code Point (DSCP) of 32. This DSCP value is associated with the Expedited Forwarding (EF) Per-Hop Behavior, which is used for prioritizing certain types of network traffic.
+
+### d. **ECN (2 bits)**
+- **Value:** `00`
+- **Explanation:** A value of `00` in the ECN field indicates that Explicit Congestion Notification (ECN) is not used. This means the packet does not support or require ECN mechanisms.
+
+### e. **Total Length (2 bytes)**
+- **Value:** `1228`
+- **Explanation:** The value `1228` specifies the total length of the packet, including both the header and the data, which is 1228 bytes.
+
+### f. **Identification (2 bytes)**
+- **Value:** `0x0000`
+- **Explanation:** The value `0x0000` represents the identification field of the packet, which is set to 0. This field is used for uniquely identifying fragments of a single datagram.
+
+### g. **Flags (3 bits)**
+- **Value:** `0x2`
+- **Explanation:** The value `0x2` in the Flags field indicates the "Don't Fragment" flag is set. This means that the packet should not be fragmented.
+
+### h. **Fragment Offset (13 bits)**
+- **Value:** `0`
+- **Explanation:** The value `0` in the Fragment Offset field indicates that this packet is not fragmented, meaning it is a complete datagram without any offset.
+
+### i. **TTL (Time to Live) (1 byte)**
+- **Value:** `58`
+- **Explanation:** The value `58` in the TTL field signifies that the packet can pass through up to 58 routers before being discarded. Typically, operating systems like macOS or GNU/Linux use a default TTL of 64, so a value of 58 suggests the packet has traversed 6 routers.
+
+### j. **Protocol (1 byte)**
+- **Value:** `UDP (17)`
+- **Explanation:** The value `17` in the Protocol field indicates that the packet uses User Datagram Protocol (UDP) for the data portion. This specifies the transport layer protocol used.
+
+### k. **Header Checksum (2 bytes)**
+- **Value:** `0x27b1`
+- **Explanation:** The checksum value `0x27b1` is used to verify the integrity of the header. If the calculated checksum does not match this value, it indicates that there might be errors or data loss in the packet.
+
+### l. **Source Address (4 bytes)**
+- **Value:** `142.250.195.3`
+- **Explanation:** The source IP address `142.250.195.3` denotes the origin of the packet. In this case, it belongs to Google LLC, and the packet is sent from this address, which is located in Delhi, India.
+
+### m. **Destination Address (4 bytes)**
+- **Value:** `192.168.1.74`
+- **Explanation:** The destination IP address `192.168.1.74` indicates the recipient of the packet. This address belongs to the intended recipient of the packet.
