@@ -1,7 +1,4 @@
-
-
 ## 1.Differenciate between OSI & TCP/IP model.
-
 
 The differences between OSI & TCP/IP model are listed below:
 
