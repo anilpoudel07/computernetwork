@@ -1,0 +1,20 @@
+# UDP Header Field Values
+
+## UDP Header Field Explanations
+
+### 1. **Source Port Number**
+- **Value:** `0xf811` (or `63505` in decimal)
+- **Explanation:** The Source Port number `63505` is within the dynamic port range (49152-65535). This suggests that the data was sent from a temporary or client-side application using a dynamic or private port.
+
+### 2. **Destination Port Number**
+- **Value:** `0x01bb` (or `443` in decimal)
+- **Explanation:** The Destination Port number `443` typically signifies a service that uses secure communication. In the context of UDP, this port is often used for modern protocols requiring secure and efficient data transfer.
+
+### 3. **Length**
+- **Value:** `0x0029` (or `41` in decimal)
+- **Explanation:** The Length value `41` represents the total size of the UDP packet, including the header. By subtracting the header size, which is 8 bytes, the actual data size is `33` bytes. This data size is reflected in the screenshot as the UDP payload.
+
+### 4. **Checksum**
+- **Value:** `0xd398`
+- **Explanation:** The Checksum value `0xd398` is used to verify the integrity of the data. It helps in detecting any changes or errors in the UDP packet during transmission.
+
