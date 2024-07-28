@@ -1,0 +1,40 @@
+## UDP Header Structure
+
+The UDP header is 8 bytes long and consists of the following 4 fields:
+
+- **Source Port Number (2 bytes)**
+- **Destination Port Number (2 bytes)**
+- **Length (2 bytes)**
+- **Checksum (2 bytes)**
+
+## Field Descriptions
+
+### a) Source Port Number (2 bytes)
+- **Purpose**: Identifies the sender's port. This port is used for responses if needed.
+- **Usage**:
+  - **Client**: Typically an ephemeral port number, dynamically assigned.
+  - **Server**: Usually a well-known port number (0 to 1023).
+- **Default**: If not used, the port number is set to zero.
+
+### b) Destination Port Number (2 bytes)
+- **Purpose**: Specifies the receiver's port.
+- **Usage**:
+  - **Client**: Often an ephemeral port number.
+  - **Server**: Generally a well-known port number.
+- **Requirement**: This field is mandatory for directing the packet to the correct application on the destination host.
+
+### c) Length (2 bytes)
+- **Purpose**: Indicates the total length of the UDP header and UDP data.
+- **Details**:
+  - **Minimum Length**: 8 bytes (the length of the header alone).
+  - **Maximum Theoretical Length**: 65,535 bytes (8-byte header + 65,527 bytes of data).
+  - **Practical Limit**: In IPv4, the maximum data length is 65,507 bytes (65,535 bytes − 8-byte UDP header − 20-byte IP header).
+
+### d) Checksum (2 bytes)
+- **Purpose**: Provides error-checking for the header and data.
+- **Usage**:
+  - **IPv4**: Optional.
+  - **IPv6**: Mandatory.
+- **Details**: The checksum helps detect errors in the header and payload. If not used, the field is set to zero.
+
+
