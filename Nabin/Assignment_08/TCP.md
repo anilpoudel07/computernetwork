@@ -9,6 +9,7 @@ This process is often referred to as the **TCP handshake**. It involves three st
 - **SYN-ACK (Synchronize-Acknowledge)**: The server responds with a segment that has both the SYN and ACK flags set. This segment acknowledges the client’s SYN segment (by including an acknowledgment number) and includes the server’s own initial sequence number.
 
 - **ACK (Acknowledge)**: The client sends a final segment with the ACK flag set to acknowledge the server's SYN-ACK segment. At this point, the connection is established, and data can begin to be exchanged.
+  ![connection initialization](/Nabin/Assignment_08/file_uploader/Connection%20photos/Connection_Initialization.png)
 
 ### 2. Connection Maintenance
 
@@ -21,6 +22,7 @@ Once the connection is established, it needs to be maintained to ensure reliable
 - **Error Checking**: Each segment includes a checksum to verify the integrity of the data. If a segment is lost or corrupted, it is retransmitted.
 
 - **Congestion Control**: TCP adjusts the rate of data transmission based on network congestion to avoid overloading the network. This is done using algorithms like slow start, congestion avoidance, and fast recovery.
+  ![connection Maintenance](/Nabin/Assignment_08/file_uploader/Connection%20photos/Connection_Maintenance.png)
 
 ### 3. Connection Termination
 
@@ -33,5 +35,6 @@ When the communication is done, the connection is terminated gracefully to ensur
 - **FIN from Receiver**: The receiver, once it has finished sending all its data, sends its own FIN segment to indicate it’s also done.
 
 - **Final ACK**: The original sender acknowledges the receiver’s FIN segment with a final ACK segment. At this point, the connection is fully closed.
+  ![connection initialization](/Nabin/Assignment_08/file_uploader/Connection%20photos/Connection_Termination.png)
 
 Each side of the connection goes through a **four-way handshake** to close the connection, ensuring that all data has been transmitted and acknowledged before the connection is terminated.
