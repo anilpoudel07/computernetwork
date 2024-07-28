@@ -1,0 +1,54 @@
+# TCP Header Field Values
+
+A TCP header comprises 10 mandatory fields and 2 optional fields. Below, we describe each field's value and its significance.
+
+## Header Field Explanations
+
+### 1. **Source Port**
+- **Value:** `0xe135` (or `57653` in decimal)
+- **Explanation:** The Source Port value `57653` identifies the port used by the sending application to communicate with the receiving host. This port falls within the Dynamic or Private port range, which is typically used for ephemeral connections.
+
+### 2. **Destination Port**
+- **Value:** `0x01bb` (or `443` in decimal)
+- **Explanation:** The Destination Port value `443` signifies that the data is destined for the HTTPS service on the receiving host. This port number ensures that the data is forwarded to the appropriate application handling HTTPS traffic, enabling secure communication between the client and server.
+
+### 3. **Sequence Number**
+- **Value:** `1` (Relative Sequence Number), `0x287f0980` (Absolute Sequence Number)
+- **Explanation:** The Relative Sequence Number `1` represents the first byte of data following the Initial Sequence Number. The Absolute Sequence Number `0x287f0980` (or `679414144` in decimal) is the actual sequence number used in the TCP header. This helps in tracking packets within a TCP stream for easier analysis.
+
+### 4. **Acknowledgment Number**
+- **Value:** `1` (Relative Acknowledgment Number), `0x12d487d3` (Absolute Acknowledgment Number)
+- **Explanation:** The Absolute Acknowledgment Number `0x12d487d3` (or `315918291` in decimal) indicates that the receiver has successfully received all bytes up to `315918290` and expects the next byte to be `315918291`. The Relative Acknowledgment Number `1` simplifies this to indicate that it is the first byte expected after the initial sequence.
+
+### 5. **Data Offset**
+- **Value:** `0x8` (or `1000` in binary)
+- **Explanation:** The value `0x8` indicates that the TCP header is 32 bytes long. The actual data payload starts after these 32 bytes of header information.
+
+### 6. **Reserved**
+- **Value:** `0`
+- **Explanation:** The Reserved field is set to `0`, indicating that no bits are reserved for future use. If reserved, the value would range from `0` to `15`.
+
+### 7. **Flags**
+- **Value:** `0x018`
+- **Explanation:** The Flags value `0x018`, when converted to binary (`0000 0001 1000`), shows that the Reserved field occupies the first 4 most significant bits. The remaining bits indicate that the ACK (Acknowledgment) and PSH (Push) flags are set. The ACK flag signifies that the Acknowledgment field is valid, while the PSH flag indicates that the receiver should pass the data to the application immediately.
+
+### 8. **Window Size**
+- **Value:** `0x0800` (or `2048` in decimal)
+- **Explanation:** The Window Size value `2048` indicates the amount of data the receiver is currently willing to accept from the sender. This value represents the available buffer space on the receiver’s side.
+
+### 9. **Checksum**
+- **Value:** `0x357c`
+- **Explanation:** The Checksum value `0x357c` represents the result of the checksum calculation for this TCP segment. It is used to detect errors that may have occurred during the transmission of the packet.
+
+### 10. **Urgent Pointer**
+- **Value:** `0x0000`
+- **Explanation:** The Urgent Pointer value `0x0000` indicates that there is no urgent data in this segment, and the URG flag is not active. In this case, only the ACK and PSH flags are active.
+
+### 11. **Options**
+- **Value:** `0x0101080a438b5518df08c81e`
+- **Explanation:** 
+  - `0x01` is a No-Operation (NOP) option used for padding.
+  - `0x08` denotes a Timestamp option with a length of 10 bytes.
+  - `0x438b5518` represents the Timestamp value.
+  - `0xdf08c81e` is the Timestamp Echo Reply value.
+
