@@ -87,5 +87,3 @@
    - **Response Packets**: Sent back to the client.
    - **Reassembly**: Browser reassembles the packets.
    - **Rendering**: Browser renders the webpage.
-
-By understanding each of these layers and steps, you get a comprehensive view of what happens behind the scenes when you type `google.com` into your browser and press enter.
