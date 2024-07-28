@@ -1,3 +1,5 @@
+## What happens when you type google.com into your browser's address box and press enter?
+
 ### Application Layer (Layer 7)
 
 1. **URL Parsing**: When you type `google.com` into the browser and press enter, the browser parses the URL to identify the protocol (`http` or `https`), the domain name (`google.com`), and the path (if any).
