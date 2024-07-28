@@ -1,61 +1,110 @@
 Problem statement
-You have been given a directed weighted graph of ‘N’ vertices labeled from 1 to 'N' and ‘M’ edges. Each edge connecting two nodes 'u' and 'v' has a weight 'w' denoting the distance between them.
+You have been given an undirected graph of ‘V’ vertices (labeled 0,1,..., V-1) and ‘E’ edges. Each edge connecting two nodes (‘X’,’Y’) will have a weight denoting the distance between node ‘X’ and node ‘Y’.
 
-Your task is to calculate the shortest distance of all vertices from the source vertex 'src'.
+Your task is to find the shortest path distance from the source node, which is the node labeled as 0, to all vertices given in the graph.
 
-Note:
-If there is no path between 'src' and 'ith' vertex, the value at 'ith' index in the answer array will be 10^8.
-Example :
-![alt text](1.png)
-3 3 1
-1 2 2
+Example:
+
+Input:
+4 5
+0 1 5
+0 2 8
+1 2 9
 1 3 2
-2 3 -1
+2 3 6
 
-In the above graph:
+![alt text](1.jpg)
 
-The length of the shortest path between vertex 1 and vertex 1 is 1->1 and the cost is 0.
+In the given input, the number of vertices is 4, and the number of edges is 5.
 
-The length of the shortest path between vertex 1 and vertex 2 is 1->2 and the cost is 2.
+In the input, following the number of vertices and edges, three numbers are given. The first number denotes node ‘X’, the second number denotes node ‘Y’ and the third number denotes the distance between node ‘X’ and ‘Y’.
 
-The length of the shortest path between vertex 1 and vertex 3 is 1->2->3 and the cost is 1.
+As per the input, there is an edge between node 0 and node 1 and the distance between them is 5.
 
-Hence we return [0, 2, 1].
-Note :
+The vertices 0 and 2 have an edge between them and the distance between them is 8.
+The vertices 1 and 2 have an edge between them and the distance between them is 9.
+The vertices 1 and 3 have an edge between them and the distance between them is 2.
+The vertices 2 and 3 have an edge between them and the distance between them is 6.
+Note:
 
-It's guaranteed that the graph doesn't contain self-loops and multiple edges. Also, the graph does not contain negative weight cycles.
-Detailed explanation ( Input/output format, Notes, Images )
-Sample Input 1 :
-4 4 1
-1 2 4
-1 3 3
-2 4 7
-3 4 -2
-Sample Output 1 :
-0 4 3 1
-Explanation For Sample Output 1 :
-![alt text](2.png)
-In the above graph:
+1. There are no self-loops(an edge connecting the vertex to itself) in the given graph.
 
-The length of the shortest path between vertex 1 and vertex 1 is 1->1 and the cost is 0.
+2. There can be parallel edges i.e. two vertices can be directly connected by more than 1 edge.
+   Detailed explanation ( Input/output format, Notes, Images )
+   Sample input 1
+   2
+   5 7
+   0 1 7
+   0 2 1
+   0 3 2
+   1 2 3
+   1 3 5
+   1 4 1
+   3 4 7
+   4 5
+   0 1 5
+   0 2 8
+   1 2 9
+   1 3 2
+   2 3 6
+   Sample output 1
+   0 4 1 2 5
+   0 5 8 7
+   Explanation For Sample Output 1
+   Test case 1:
 
-The length of the shortest path between vertex 1 and vertex 2 is 1->2 and the cost is 4.
+![alt text](2.jpg)
 
-The length of the shortest path between vertex 1 and vertex 3 is 1->3 and the cost is 3.
+The source node is node 0.
 
-The length of the shortest path between vertex 1 and vertex 4 is 1->3->4 and the cost is 1.
+The shortest distance from node 0 to node 0 is 0.
 
-Hence we return [0, 4, 3, 1].
-Sample Input 2 :
-2 1 1
-2 1 3
-Sample Output 2 :
-0 1000000000
-Constraints :
-1 <= N <= 50
-1 <= M <= 300
-1 <= src <= N
-1 <= u,v <= N
--10^5 <= w <= 10^5
+The shortest distance from node 0 to node 1 is 4. In the above figure, the green path represents this distance. The path goes from node 0->2->1, giving distance = 1+3=4.
 
-Time Limit: 1 sec
+The shortest distance from node 0 to node 2 is 1. In the above figure, the red path represents this distance. The path goes from node 0->2, giving distance = 1
+
+The shortest distance from node 0 to node 3 is 2. In the above figure, the pink path represents this distance. The path goes from node 0->3, giving distance = 2.
+
+The shortest distance from node 0 to node 4 is 5. In the above figure, the yellow path represents this distance. The path goes from node 0->2->1->4, giving distance = 1+3+1=5.
+
+Test case 2:
+
+![alt text](3.jpg)
+
+The source node is node 0.
+
+The shortest distance from node 0 to node 0 is 0.
+
+The shortest distance from node 0 to node 1 is 5. In the above figure, the green path represents this distance. The path goes from node 0->1, giving distance = 5.
+
+The shortest distance from node 0 to node 2 is 8. In the above figure, the pink path represents this distance. The path goes from node 0->2, giving distance = 8.
+
+The shortest distance from node 0 to node 3 is 7. In the above figure, the yellow path represents this distance. The path goes from node 0->1->3, giving distance = 7.
+Sample input 2:
+2
+9 14
+0 1 4
+0 7 8
+1 2 8
+1 7 11
+2 3 7
+2 5 4
+2 8 2
+3 4 9
+3 5 14
+4 5 10
+5 6 2
+6 7 1
+6 8 6
+7 8 7
+5 7
+0 1 7
+0 2 3
+1 2 1
+1 3 2
+1 4 6
+2 3 4
+3 4 4
+Sample output 2:
+0 4 12 19 21 11 9 8 14
+0 4 3 6 10
