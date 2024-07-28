@@ -1,0 +1,34 @@
+Q. What are the seven layers of OSI model and their functions?
+
+The OSI (Open Systems Interconnection) model is a conceptual framework used to understand and implement standard protocols in various layers of networking. It is divided into seven layers, each with specific functions:
+
+1. Physical Layer (Layer 1):
+   - Function: Deals with the physical connection between devices and the transmission and reception of raw bit streams over a physical medium.
+   - Examples: Cables, switches, hubs, and other physical devices.
+
+2. Data Link Layer (Layer 2):
+   - Function: Responsible for node-to-node data transfer and error detection and correction in the physical layer.
+   - Sub-layers: Logical Link Control (LLC) and Media Access Control (MAC).
+   - Examples: Ethernet, switches, bridges.
+
+3. Network Layer (Layer 3):
+   - Function: Manages the delivery of packets from the source to the destination through multiple networks (routing).
+   - Examples: IP (Internet Protocol), routers.
+
+4. Transport Layer (Layer 4):
+   - Function: Ensures end-to-end communication, error recovery, and flow control between devices.
+   - Examples: TCP (Transmission Control Protocol), UDP (User Datagram Protocol).
+
+5. Session Layer (Layer 5):
+   - Function: Manages sessions and connections between applications, maintaining, establishing, and terminating connections.
+   - Examples: Session management protocols like NetBIOS.
+
+6. Presentation Layer (Layer 6):
+   - Function: Translates data between the application layer and the network, encrypts/decrypts data, and handles data compression.
+   - Examples: SSL/TLS, JPEG, ASCII.
+
+7. Application Layer (Layer 7):
+   - Function: Provides network services directly to user applications and handles high-level protocols.
+   - Examples: HTTP, FTP, SMTP, DNS.
+
+Each layer serves a distinct function and interacts with the layers directly above and below it, ensuring efficient communication and data transfer across a network.
