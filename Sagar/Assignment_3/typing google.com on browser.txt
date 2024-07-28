@@ -1,0 +1,61 @@
+Q. What happens when you type google.com on your browser and enter? Write a full report on it.
+
+When you type "google.com" into your browser and press enter, a complex series of events takes place to fetch the desired web page from the internet and display it in your browser. This process involves multiple steps and technologies across different layers of the OSI and TCP/IP models. Here’s a detailed report on the sequence of events:
+
+ 1. DNS Resolution:
+   - User Input: You type "google.com" into the browser's address bar and press enter.
+   - Browser Cache: The browser first checks its own cache to see if it has recently resolved the IP address for "google.com".
+   - Operating System Cache: If the address is not in the browser cache, the operating system's DNS cache is checked.
+   - DNS Query: If the IP address is not found in the OS cache, the system makes a DNS query to a DNS server (typically provided by your ISP or a public DNS like Google DNS or Cloudflare DNS).
+   - Recursive DNS Resolution: The DNS server might perform recursive queries, querying other DNS servers if it doesn’t have the answer, until it finds the authoritative DNS server for "google.com" and retrieves the corresponding IP address.
+
+ 2. TCP Connection Establishment:
+   - IP Address Obtained: The browser receives the IP address (e.g., 142.250.72.14) of the Google server.
+   - Socket Creation: The browser creates a socket to establish a connection with the server using the IP address and port 80 (HTTP) or 443 (HTTPS).
+   - TCP Handshake: A three-way handshake is initiated to establish a TCP connection:
+     - SYN: The browser sends a SYN (synchronize) packet to the server.
+     - SYN-ACK: The server responds with a SYN-ACK (synchronize-acknowledge) packet.
+     - ACK: The browser sends an ACK (acknowledge) packet back to the server.
+
+ 3. SSL/TLS Handshake (if using HTTPS):
+   - SSL/TLS Initiation: If HTTPS is used, an SSL/TLS handshake occurs after the TCP handshake to establish a secure connection.
+   - Certificate Exchange: The server sends its SSL certificate to the browser to verify its identity.
+   - Session Keys: The browser and server agree on session keys for encrypting the data.
+
+ 4. HTTP Request:
+   - Request Preparation: The browser prepares an HTTP GET request for the URL "http://google.com/" or "https://google.com/".
+   - Header Information: The request includes headers such as Host, User-Agent, Accept, and others.
+   - Request Sending: The browser sends the HTTP request to the server.
+
+ 5. Server Processing:
+   - Request Reception: The server (Google’s web server) receives the HTTP request.
+   - Processing: The server processes the request, which involves fetching the requested resources (HTML, CSS, JavaScript, images, etc.).
+   - Response Creation: The server generates an HTTP response with the requested content and appropriate headers.
+
+ 6. HTTP Response:
+   - Response Sending: The server sends the HTTP response back to the browser. This response includes status codes (e.g., 200 OK), headers, and the requested content (HTML page).
+
+ 7. Rendering:
+   - HTML Parsing: The browser receives the HTML content and begins parsing it.
+   - Resource Requests: As the browser parses the HTML, it identifies additional resources (CSS, JavaScript, images) required to render the page and makes additional HTTP requests for these resources.
+   - CSS and JavaScript: The browser processes CSS to style the page and executes JavaScript to provide interactivity.
+
+ 8. Rendering Engine:
+   - DOM Construction: The browser constructs the DOM (Document Object Model) tree from the parsed HTML.
+   - Render Tree Construction: The browser constructs the render tree, combining the DOM and CSSOM (CSS Object Model).
+   - Layout: The browser calculates the layout, determining the position and size of each element on the page.
+   - Painting: The browser paints the pixels to the screen, rendering the web page.
+
+ 9. User Interaction:
+   - Interactive Page: The browser renders an interactive page, allowing the user to interact with it by clicking links, entering data, etc.
+   - JavaScript Execution: JavaScript continues to run, handling events and updating the DOM as needed.
+
+ Summary:
+The process involves multiple layers of networking and computing:
+
+- Application Layer: DNS resolution, HTTP requests, and responses.
+- Transport Layer: TCP connection establishment and data transmission.
+- Internet Layer: IP addressing and routing.
+- Link Layer: Physical transmission of data over the network.
+
+This sequence demonstrates the complexity and efficiency of modern web technologies, enabling quick and seamless access to information on the internet.
