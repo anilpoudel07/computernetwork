@@ -16,8 +16,11 @@ The connection initialization phase involves a three-way handshake:
  ** Look for a packet with the `SYN` flag set. This packet is the first in the handshake process.
 
 - **SYN-ACK (Synchronize-Acknowledge):** The server responds with a SYN-ACK packet. This packet acknowledges the client's SYN request and includes the server's own sequence number.
+![Alt text](images/ack-seq.png)
 
-  ** Look for a packet with both `SYN` and `ACK` flags set. This is the server's response to the client's initial request.
+  
+  
+** Look for a packet with both `SYN` and `ACK` flags set. This is the server's response to the client's initial request.
 
 - **ACK (Acknowledge):** The client sends an ACK packet to acknowledge the server's SYN-ACK packet. At this point, the connection is established, and data transfer can begin.
 
@@ -38,6 +41,8 @@ During the connection maintenance phase, data transfer and acknowledgments occur
 #### 3. Connection Termination
 
 The connection termination phase involves a four-way handshake:
+![Alt text](images/termination.png)
+
 
 - **FIN (Finish):** One side (typically the client) sends a FIN packet to indicate that it has finished sending data and wants to close the connection.
 
@@ -55,7 +60,14 @@ The connection termination phase involves a four-way handshake:
 
   **Look for a final packet with the `ACK` flag set, completing the termination process.
 
+
+
+
 ## Conclusion
+
+
+
+![Alt text](images/tcpstream.png)
 
 Analyzing TCP streams using Wireshark provides valuable insights into the lifecycle of TCP connections, including initialization, maintenance, and termination. By examining the sequence of packets and their flags (SYN, SYN-ACK, ACK, FIN), you can understand how TCP ensures reliable communication over the network. This analysis is essential for diagnosing network issues, optimizing performance, and ensuring robust data transmission in network applications.
 
