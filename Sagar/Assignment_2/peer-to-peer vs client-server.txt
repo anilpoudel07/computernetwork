@@ -1,0 +1,60 @@
+Q. Differentiate between peer-to-peer and client-server network architecture.
+
+Peer-to-peer (P2P) and client-server are two fundamental network architectures that define how devices communicate and share resources in a network. Here’s a comparison of the two:
+
+ Peer-to-Peer (P2P) Network Architecture:
+
+1. Structure:
+   - In a P2P network, each device (peer) has equal status and can act as both a client and a server.
+   - There is no central server; all peers share resources directly with each other.
+
+2. Resource Sharing:
+   - Resources like files, storage, and processing power are distributed among all peers.
+   - Each peer can initiate or complete a transaction, and data can be exchanged directly between peers.
+
+3. Scalability:
+   - Generally more scalable for smaller networks, as each additional peer adds more resources to the network.
+   - Performance may degrade as the number of peers increases, especially without proper management and protocols.
+
+4. Cost:
+   - Usually less expensive to set up and maintain because there is no need for dedicated servers.
+   - Each peer contributes its own resources, reducing the need for centralized infrastructure.
+
+5. Management:
+   - More complex to manage as the network grows, since each peer must be individually managed and configured.
+   - Security and data consistency can be challenging to maintain due to the distributed nature.
+
+6. Examples:
+   - File-sharing networks like BitTorrent, decentralized applications, and blockchain technology.
+
+ Client-Server Network Architecture:
+
+1. Structure:
+   - In a client-server network, there is a central server that provides resources and services to client devices.
+   - Clients request services or resources from the server, which processes and responds to those requests.
+
+2. Resource Sharing:
+   - Resources are centralized on the server, which manages and distributes them to clients as needed.
+   - Clients typically do not share their resources with other clients directly.
+
+3. Scalability:
+   - Generally more scalable for larger networks, as the central server can be upgraded to handle more clients.
+   - Can efficiently manage and serve a large number of clients with proper server capacity.
+
+4. Cost:
+   - Higher initial setup and maintenance costs due to the need for dedicated server hardware and infrastructure.
+   - Servers require regular maintenance, updates, and potentially additional hardware as the network grows.
+
+5. Management:
+   - Easier to manage, as the central server controls resources, security, and user access.
+   - Centralized management simplifies tasks like data backup, security updates, and user authentication.
+
+6. Examples:
+   - Web servers, email servers, database servers, and enterprise networks where clients access centralized services.
+
+ Summary:
+
+- Peer-to-Peer: Decentralized, equal peer status, direct resource sharing, lower cost, more complex management, suitable for smaller networks.
+- Client-Server: Centralized, distinct client and server roles, centralized resource sharing, higher cost, easier management, suitable for larger networks.
+
+Each architecture has its own advantages and is suitable for different types of applications and network environments.
